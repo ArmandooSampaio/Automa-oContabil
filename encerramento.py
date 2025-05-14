@@ -1,5 +1,8 @@
 from selenium import webdriver
 import time
+import logging
+
+logging.basicConfig(filename='encerramento_log.txt', level=logging.INFO, format='%(asctime)s - %(message)s')
 
 def auto_encerramento(empresa, login, senha): 
     try:
@@ -18,7 +21,9 @@ def auto_encerramento(empresa, login, senha):
 
         
     except Exception as e:
-        print( empresa, ": Não foi possivel concluir sua solicitação com sucesso")
+        logging.error(f"{empresa}: Erro ao tentar concluir o encerramento")
+        return
+  
     
     finally:
         if navegador:

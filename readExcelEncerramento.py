@@ -9,7 +9,6 @@ def data_read():
         login = row['LOGIN']
         senha = row['SENHA'] 
         auto_encerramento(empresa, login, senha)
-        print(empresa)
         
 if __name__ == "__main__":
     data_read()
